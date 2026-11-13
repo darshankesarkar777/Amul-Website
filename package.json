@@ -1,0 +1,21 @@
+{
+  "name": "amul-kool-koko-experience",
+  "version": "1.0.0",
+  "description": "Amul Kool Koko 3D Scroll-Driven Interactive Product Showcase",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static production assets ready for deployment'"
+  },
+  "keywords": [
+    "amul",
+    "scroll-animation",
+    "3d-canvas",
+    "kool-koko",
+    "interactive-web",
+    "vercel"
+  ],
+  "author": "Darshan Kesarkar",
+  "license": "MIT"
+}

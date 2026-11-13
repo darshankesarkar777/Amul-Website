@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amul Kool Koko — The Real Chocolate Chill</title>
+  <meta name="description"
+    content="Experience Amul Kool Koko chocolate milk through an interactive 3D scroll animation. Rich cocoa, chilled milk, pure indulgence." />
+
+  <!-- Preload Font & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="amul-stamp">
+        <span class="amul-brand">Amul</span>
+        <span class="amul-tagline">The Taste of India</span>
+      </div>
+      <h2 class="preloader-title">KOOL KOKO</h2>
+      <p class="preloader-subtitle">Chilling the cocoa cascade...</p>
+
+      <div class="progress-container">
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progressText">0%</span>
+        </div>
+      </div>
+      <button id="skipPreloaderBtn" class="btn-skip" style="display:none;">Launch Experience &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">
+        <span class="brand-badge">Amul</span>
+        <span class="brand-title">KOOL <span>KOKO</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#experience" class="nav-link active">Experience</a>
+        <a href="#flavor-profile" class="nav-link">Flavor Profile</a>
+        <a href="#nutrition" class="nav-link">Nutrition</a>
+        <a href="#collection" class="nav-link">Collection</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="audioToggle" class="btn-icon" title="Toggle Chill Sounds" aria-label="Toggle Sound">
+          <svg class="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="icon-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="display:none;">
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          </svg>
+        </button>
+
+        <button id="autoplayBtn" class="btn-secondary" title="Play / Pause Animation">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+          <span>Auto Play</span>
+        </button>
+
+        <button class="btn-primary" id="orderNowNavBtn">
+          <span>Order Now &bull; &#8377;35</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Scroll Animation Section -->
+  <main id="experience" class="scroll-hero-section">
+    <!-- Pinned Viewport Container -->
+    <div class="sticky-viewport">
+      <!-- 3D Canvas Background -->
+      <canvas id="animCanvas" class="anim-canvas"></canvas>
+
+      <!-- Ambient Lighting & Vignette Overlays -->
+      <div class="ambient-glow"></div>
+      <div class="vignette-overlay"></div>
+
+      <!-- Floating Narrative Overlay Layers -->
+      <div class="narrative-container">
+
+        <!-- Story Beat 1: Intro Hero (0% - 18%) -->
+        <div class="story-card beat-1" data-beat="1">
+          <div class="pill-tag">
+            <span class="pulsing-dot"></span> Real Chocolate Milk
+          </div>
+          <h1 class="hero-title">
+            THE REAL<br>
+            <span class="gradient-text">CHOCOLATE CHILL</span>
+          </h1>
+          <p class="hero-desc">
+            Rich cocoa indulgence harmonized with pure farm-fresh milk. Scroll to immerse into the liquid chocolate
+            vortex.
+          </p>
+          <div class="hero-badges">
+            <div class="badge-item">
+              <span class="badge-num">100%</span>
+              <span class="badge-lbl">Pure Cocoa</span>
+            </div>
+            <div class="badge-divider"></div>
+            <div class="badge-item">
+              <span class="badge-num">4&deg;C</span>
+              <span class="badge-lbl">Served Chilled</span>
+            </div>
+            <div class="badge-divider"></div>
+            <div class="badge-item">
+              <span class="badge-num">8.5g</span>
+              <span class="badge-lbl">Dairy Protein</span>
+            </div>
+          </div>
+          <div class="scroll-cue">
+            <span class="scroll-mouse">
+              <span class="scroll-wheel"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Story Beat 2: Liquid Splash (22% - 42%) -->
+        <div class="story-card beat-2 glass-panel" data-beat="2">
+          <h2>The Chocolate Splash</h2>
+          <p>
+            Velvety chocolate waves crown the iconic can. Every drop is crafted with slow-churned dairy cream and
+            decadent roasted cocoa nibs.
+          </p>
+          <ul class="feature-bullets">
+            <li><span class="bullet-check">&#10003;</span> High-pressure micro-emulsified texture</li>
+            <li><span class="bullet-check">&#10003;</span> Silky smooth melt with zero grit</li>
+            <li><span class="bullet-check">&#10003;</span> Natural energy boost for active days</li>
+          </ul>
+        </div>
+
+        <!-- Story Beat 3: Texture & Ingredients (46% - 68%) -->
+        <div class="story-card beat-3 glass-panel" data-beat="3">
+          <h2>Rich Cocoa Chunks &amp; Milk</h2>
+          <p>
+            Suspended cocoa solids swirling in refrigerated equilibrium. Thick, creamy, and bursting with authentic
+            chocolate aroma.
+          </p>
+          <div class="flavor-bars">
+            <div class="flavor-bar-row">
+              <div class="flavor-info">
+                <span>Cocoa Depth</span>
+                <span class="flavor-val">96%</span>
+              </div>
+              <div class="meter-track">
+                <div class="meter-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+            <div class="flavor-bar-row">
+              <div class="flavor-info">
+                <span>Milk Creaminess</span>
+                <span class="flavor-val">98%</span>
+              </div>
+              <div class="meter-track">
+                <div class="meter-fill" style="width: 98%;"></div>
+              </div>
+            </div>
+            <div class="flavor-bar-row">
+              <div class="flavor-info">
+                <span>Chill Factor</span>
+                <span class="flavor-val">100%</span>
+              </div>
+              <div class="meter-track">
+                <div class="meter-fill" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Beat 4: Heritage & Pride (72% - 90%) -->
+        <div class="story-card beat-4 glass-panel" data-beat="4">
+          <h2>The Taste of India</h2>
+          <p>
+            From the heart of Anand, Gujarat to every street in India. Trusted by over 3.6 million farmer-members,
+            powering nation-wide smiles.
+          </p>
+          <div class="stat-grid">
+            <div class="stat-box">
+              <span class="stat-value">180ml</span>
+              <span class="stat-label">Sleek Eco-Can</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-value">No Preservatives</span>
+              <span class="stat-label">Pure Sterilized</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Beat 5: Finale & Action (92% - 100%) -->
+        <div class="story-card beat-5" data-beat="5">
+          <div class="pill-tag golden">Ready To Drink</div>
+          <h2 class="finale-title">INDULGE IN KOOL KOKO</h2>
+          <p class="finale-desc">
+            Grab an ice-cold can from your nearest store or order online in seconds.
+          </p>
+          <div class="action-buttons">
+            <button class="btn-primary pulse-btn" id="orderCanBtn">
+              <span>Order Chilled Pack &bull; &#8377;35</span>
+            </button>
+            <a href="#nutrition" class="btn-secondary">View Nutrition Table &darr;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Minimal Interactive Scrubber Track (No obstructive text or bulky overlay) -->
+      <div class="minimal-scrubber-bar">
+        <input type="range" id="frameScrubber" min="1" max="235" value="1" step="1" aria-label="Animation scrubber" />
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Detailed Sections -->
+  <section id="flavor-profile" class="details-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="sub-header">THE TASTE ARCHITECTURE</span>
+        <h2 class="section-heading">Why Amul Kool Koko Stands Apart</h2>
+        <p class="section-subtext">Engineered through generations of dairy mastery to deliver an unmatched chocolate
+          milk mouthfeel.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="card-icon">🍫</div>
+          <h3>Selected African Cocoa</h3>
+          <p>Carefully sourced, finely processed cocoa with rich alkalized notes that eliminate harsh bitterness while
+            maximizing depth.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">🥛</div>
+          <h3>100% Farm Fresh Milk</h3>
+          <p>Collected daily from certified cooperative farms across rural India. Retaining natural creaminess and
+            healthy dairy fats.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">❄️</div>
+          <h3>Cold Chain Integrity</h3>
+          <p>Preserved through temperature-controlled distribution so every can pops with chilling, thirst-quenching
+            satisfaction.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h3>Hermetically Retorted</h3>
+          <p>No chemical preservatives needed. Advanced thermal processing guarantees shelf freshness for up to 180
+            days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nutrition Facts Section -->
+  <section id="nutrition" class="nutrition-section">
+    <div class="section-container">
+      <div class="nutrition-wrapper">
+        <div class="nutrition-card">
+          <div class="nutrition-header">
+            <h3>Nutrition Information</h3>
+            <span class="serving-size">Serving Size: 1 Can (180 ml)</span>
+          </div>
+
+          <table class="nutrition-table">
+            <thead>
+              <tr>
+                <th>Nutrient</th>
+                <th>Per 100 ml</th>
+                <th>Per 180 ml Can</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Energy</strong></td>
+                <td>98 kcal</td>
+                <td><strong>176 kcal</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Total Fat</strong></td>
+                <td>3.0 g</td>
+                <td>5.4 g</td>
+              </tr>
+              <tr>
+                <td>&mdash; Saturated Fat</td>
+                <td>1.9 g</td>
+                <td>3.4 g</td>
+              </tr>
+              <tr>
+                <td>&mdash; Trans Fat</td>
+                <td>0.0 g</td>
+                <td>0.0 g</td>
+              </tr>
+              <tr>
+                <td><strong>Protein</strong></td>
+                <td>3.2 g</td>
+                <td><strong>5.8 g</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Carbohydrates</strong></td>
+                <td>14.5 g</td>
+                <td>26.1 g</td>
+              </tr>
+              <tr>
+                <td>&mdash; Added Sugar</td>
+                <td>9.5 g</td>
+                <td>17.1 g</td>
+              </tr>
+              <tr>
+                <td><strong>Calcium</strong></td>
+                <td>110 mg</td>
+                <td><strong>198 mg</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="nutrition-note">*Approximate values. Amul uses pure dairy milk solids and cocoa.</p>
+        </div>
+
+        <div class="nutrition-highlight">
+          <span class="badge-pill">Health &amp; Energy</span>
+          <h2>The Healthy Guilt-Free Indulgence</h2>
+          <p>Unlike carbonated sodas or artificial syrups, Amul Kool Koko provides real dairy calcium, essential
+            protein, and sustained vitality for workouts, midday slumps, and study sessions.</p>
+
+          <div class="stat-callouts">
+            <div class="callout">
+              <span class="callout-num">0%</span>
+              <span class="callout-txt">Trans Fats or Preservatives</span>
+            </div>
+            <div class="callout">
+              <span class="callout-num">198mg</span>
+              <span class="callout-txt">Bioavailable Calcium for Bones</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collection / Other Flavors Section -->
+  <section id="collection" class="collection-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="sub-header">THE AMUL BEVERAGE RANGE</span>
+        <h2 class="section-heading">Explore The Kool Dynasty</h2>
+      </div>
+
+      <div class="collection-grid">
+        <div class="product-item active-item">
+          <div class="product-tag">Current</div>
+          <div class="product-img-wrap">
+            <img src="frames/ezgif-frame-001.jpg" alt="Amul Kool Koko" class="product-thumb" />
+          </div>
+          <h4>Kool Koko Can</h4>
+          <p class="product-flavor">Rich Chocolate Milk</p>
+          <div class="product-foot">
+            <span class="product-price">&#8377;35</span>
+            <button class="btn-buy-mini add-cart-btn" data-product="Amul Kool Koko Can 180ml" data-price="35">Add
+              +</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+          <div class="product-tag best">Bestseller</div>
+          <div class="product-img-wrap placeholder-flavor flavor-kesar">
+            <span>✨</span>
+          </div>
+          <h4>Kool Kesar</h4>
+          <p class="product-flavor">Royal Saffron &amp; Almonds</p>
+          <div class="product-foot">
+            <span class="product-price">&#8377;30</span>
+            <button class="btn-buy-mini add-cart-btn" data-product="Amul Kool Kesar 180ml" data-price="30">Add
+              +</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+          <div class="product-tag">Classic</div>
+          <div class="product-img-wrap placeholder-flavor flavor-elaichi">
+            <span>🌿</span>
+          </div>
+          <h4>Kool Elaichi</h4>
+          <p class="product-flavor">Cardamom Flavoured Milk</p>
+          <div class="product-foot">
+            <span class="product-price">&#8377;30</span>
+            <button class="btn-buy-mini add-cart-btn" data-product="Amul Kool Elaichi 180ml" data-price="30">Add
+              +</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+          <div class="product-tag hot">Popular</div>
+          <div class="product-img-wrap placeholder-flavor flavor-cafe">
+            <span>☕</span>
+          </div>
+          <h4>Kool Cafe</h4>
+          <p class="product-flavor">Frappe Cold Coffee</p>
+          <div class="product-foot">
+            <span class="product-price">&#8377;35</span>
+            <button class="btn-buy-mini add-cart-btn" data-product="Amul Kool Cafe 200ml" data-price="35">Add +</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Order Modal / Drawer -->
+  <div id="orderModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button id="closeModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <div class="amul-stamp mini">Amul</div>
+        <h3>Order Chilled Kool Koko</h3>
+        <p>Freshly packed cans dispatched to your door.</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="order-summary-box">
+          <div class="summary-line">
+            <span>Amul Kool Koko (Pack of 6 Cans)</span>
+            <span>&#8377;210</span>
+          </div>
+          <div class="summary-line">
+            <span>Chilled Insulated Packaging</span>
+            <span class="free-tag">FREE</span>
+          </div>
+          <div class="summary-line total">
+            <strong>Total Amount</strong>
+            <strong class="total-price">&#8377;210</strong>
+          </div>
+        </div>
+
+        <form id="orderForm" class="order-form">
+          <div class="form-group">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" required placeholder="Darshan Patel" />
+          </div>
+          <div class="form-group">
+            <label for="customerPhone">Mobile Number</label>
+            <input type="tel" id="customerPhone" required placeholder="+91 98765 43210" />
+          </div>
+          <div class="form-group">
+            <label for="deliveryAddress">Delivery Address</label>
+            <textarea id="deliveryAddress" rows="2" required placeholder="Flat / Building, Street, City"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary full-width">
+            <span>Confirm Chilled Delivery &rarr;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span class="toast-icon">&#10003;</span>
+    <span id="toastMessage">Item added to your chilled box!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="brand-logo footer-logo">
+          <span class="brand-badge">Amul</span>
+          <span class="brand-title">KOOL <span>KOKO</span></span>
+        </div>
+        <p class="footer-tagline">Gujarat Co-operative Milk Marketing Federation Ltd. (GCMMF), Anand, India.</p>
+        <p class="footer-copy">&copy; 2026 Amul India. All rights reserved. Interactive 3D Scroll Experience.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4>Explore</h4>
+        <a href="#experience">3D Scroll Animation</a>
+        <a href="#flavor-profile">Taste Architecture</a>
+        <a href="#nutrition">Nutrition Facts</a>
+        <a href="#collection">Other Flavors</a>
+      </div>
+      <div class="footer-col links-col">
+        <h4>Helpline</h4>
+        <p>Toll Free: 1800 258 3333</p>
+        <p>Email: customercare@amul.coop</p>
+        <p>Available 24x7 across India</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
